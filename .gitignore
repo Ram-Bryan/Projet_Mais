@@ -1,4 +1,4 @@
 docs
 data/features.csv
-dataset/malades
-dataset/saines
+dataset/malades/*
+dataset/saines/*
