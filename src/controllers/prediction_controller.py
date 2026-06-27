@@ -7,6 +7,7 @@ import os
 import shutil
 import pickle
 import numpy as np
+import datetime
 from src.models.feature_extractor import extraire_features_image
 
 def predire_image(chemin_image):
@@ -39,15 +40,18 @@ def predire_image(chemin_image):
     
     prediction_finale = int(prediction_array[0]) # 0 (Saine) ou 1 (Malade)
     
-    # 4. Le module d'archivage (Historique)
-    # L'Application nous demande de stocker toutes images étudiées en glissant la réponse dans le nom.
+    # 4. Le module d'archivage (Historique) avec format de date demandé
     nom_fichier_original = os.path.basename(chemin_image)
+    
+    # Obtenir la date courante (YYYYMMDD-HHMMSS)
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    
     if prediction_finale == 1:
-        prefixe = "MALADE_"
-        
+        prefixe = f"{timestamp}-MALADE-"
     else:
-        prefixe = "SAINE_"
+        prefixe = f"{timestamp}-SAINE-"
         
+    # Cela donnera quelque chose comme : 20260101-143000-MALADE-Feuille3.jpg
     nouveau_nom = prefixe + nom_fichier_original
     chemin_final = os.path.join('uploads', nouveau_nom)
     

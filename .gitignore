@@ -2,3 +2,5 @@ docs
 data/features.csv
 dataset/malades/*
 dataset/saines/*
+archive_data
+test/*

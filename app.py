@@ -42,7 +42,7 @@ if fichier_upload is not None:
     col_image, col_resultat = st.columns([1, 1])
     
     with col_image:
-        st.image(chemin_tempo, caption="Photographie soumise à examen", use_column_width=True)
+        st.image(chemin_tempo, caption="Photographie soumise à examen", use_container_width=True)
         
     with col_resultat:
         st.subheader("Rapport d'Analyse Algorithmique...")
